@@ -1,0 +1,13 @@
+.browserpage {
+  flex-grow: 1;
+
+  &__questions {
+    padding: 48px 0;
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  &__collection {
+    margin-top: 12px;
+  }
+}
