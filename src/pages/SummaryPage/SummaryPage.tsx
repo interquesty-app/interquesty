@@ -1,6 +1,6 @@
 import {QuestionList} from "@/components/QuestionList/QuestionList.tsx";
 import summaryStore from "@/stores/summaryStore.ts";
-import {Question, QuestionModule} from "@/types/question.types.ts";
+import {type Question, type QuestionModule} from "@/types/question.types.ts";
 import {useStore} from "@nanostores/react";
 import {useCallback, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
@@ -50,6 +50,6 @@ export const SummaryPage = () => {
   return (
     <div className={styles.summaryPage}>
       <QuestionList noSummary className={styles.browserpage__collection} list={summary.questions.length > 0 ? summary.questions : questions} />
-    </div>
+   </div>
   );
 };

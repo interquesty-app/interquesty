@@ -7,7 +7,6 @@ import type {Question, QuestionTag as IQuestionTag} from "@/types/question.types
 import {Icon} from "@iconify-icon/react";
 import {useStore} from "@nanostores/react";
 import {clsx} from "clsx";
-import {computed} from "nanostores";
 import {type MouseEventHandler, useCallback, useState} from "react";
 import styles from './questionitem.module.scss';
 
