@@ -6,6 +6,7 @@ const slug = createQuestionSlug('js');
 
 export const slugs = {
   bindcallapply: slug('bindcallapply'),
+  promise: slug('promise'),
   requireimport: slug('requireimport'),
   micromacro: slug('micromacro'),
   iife: slug('iife'),
@@ -439,8 +440,8 @@ const javascriptQuestionCollection: QuestionSection = {
         'Цикл событий отвечает за выполнение кода, сбор и обработку событий и выполнение подзадач из очереди. В Event ' +
         'Loop есть микро- и макро-задачи, работает сам Event Loop следующим образом: ',
         '1. Event Loop дожидается покуда все синхронные задачи выполнены (Call Stack пуст);',
-        '2. После этого Event Loop выполняет ОДНУ макро-таску;',
-        '3. Затем Event Loop смотрит есть ли у нас микро-таски и выполняет их все;',
+        '2. Затем Event Loop смотрит есть ли у нас микро-таски и выполняет их все;',
+        '3. После этого Event Loop выполняет ОДНУ макро-таску;',
         '4. Если нужно перерендерить страницу - происходит ререндер (все остальные задачи ждут ререндера);',
       ],
       references: [
@@ -504,8 +505,36 @@ const javascriptQuestionCollection: QuestionSection = {
         javascriptTags.es6,
       ],
       slug: slugs.requireimport,
-      answer: [],
-    }
+      answer: [
+        'До ES6 Modules в JavaScript не было import(), все городили костыли.',
+        'До ESM был UMD, AMD, SystemJS, Webpack Modules, IIFE Modules и многие другие, CommonJS лишь был одним из них.',
+        'CommonJS сильно интегрировался в экосистему NodeJS и выпилить его стало не так просто.',
+      ],
+      references: [
+        {
+          name: 'Developer Log: JS Modules',
+          link: 'https://developer-log.vercel.app/posts/js-modules',
+        }
+      ]
+    },
+    {
+      name: 'Что такое Promise?',
+      answer: [
+        'Promise в JavaScript — это объект, представляющий результат асинхронной операции, ' +
+        'который может быть успешным (resolve) или неудачным (reject).',
+      ],
+      slug: slugs.promise,
+      references: [
+        {
+          name: 'Learn JavaScript: Promise',
+          link: 'https://learn.javascript.ru/promise',
+        }
+      ],
+      tags: [
+        levelTags.junior,
+        javascriptTags.underTheHood,
+      ]
+    },
   ]
 };
 
