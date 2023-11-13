@@ -1,4 +1,4 @@
-import {javascriptTags, levelTags} from "@/data/tags";
+import tags from "@/data/tags";
 import type {QuestionSection} from "@/types/question.types.ts";
 import {createQuestionSlug} from "@/utils/slug.ts";
 
@@ -49,7 +49,7 @@ const javascriptQuestionCollection: QuestionSection = {
         'object - Тип, который охарактеризовывает все объекты (включая массивы)',
       ],
       tags: [
-        levelTags.junior,
+        tags.junior
       ],
       references: [
         {
@@ -65,7 +65,7 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Как узнать что некий объект является массивом?',
       slug: slugs["instance-array"],
       tags: [
-        levelTags.junior,
+        tags.junior
       ],
       answer: [
         'Это можно узнать двумя способами:',
@@ -88,9 +88,9 @@ const javascriptQuestionCollection: QuestionSection = {
         'В JavaScript замыкания создаются каждый раз при создании функции, во время её создания.'
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
-        javascriptTags.function,
+        tags.junior,
+        tags.fundamentals,
+        tags.function,
       ],
       references: [
         {
@@ -115,8 +115,8 @@ const javascriptQuestionCollection: QuestionSection = {
         'createElement(), write(), removeElement().',
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.dom,
+        tags.junior,
+        tags.dom,
       ],
       references: [
         {
@@ -135,8 +135,8 @@ const javascriptQuestionCollection: QuestionSection = {
         'DOM (Document Object Model), отправку HTTP-запросов, и т.д.'
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.function,
+        tags.junior,
+        tags.function,
       ],
       references: [
         {
@@ -149,8 +149,8 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Что такое ссылочные типы данных?',
       slug: slugs["link-type"],
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
+        tags.junior,
+        tags.fundamentals,
       ],
       references: [
         {
@@ -175,9 +175,9 @@ const javascriptQuestionCollection: QuestionSection = {
         'До появления классов в JavaScript функции-конструкторы использовались для того чтобы создавать единообразные объекты.',
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
-        javascriptTags.function,
+        tags.junior,
+        tags.fundamentals,
+        tags.function,
       ],
       references: [
         {
@@ -190,8 +190,8 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'В чем отличие isNaN и Number.isNaN?',
       slug: slugs.nan,
       tags: [
-        levelTags.middle,
-        javascriptTags.es6,
+        tags.middle,
+        tags.es6,
       ],
       answer: [
         'В отличие от глобальной функции isNaN(), Number.isNaN() не имеет проблемы принудительного преобразования параметра в число.',
@@ -214,8 +214,8 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Что такое hoisting (поднятие)?',
       slug: slugs.hoisting,
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
+        tags.junior,
+        tags.fundamentals,
       ],
       answer: [
         'Hoisting (поднятие) — это механизм, согласно которому объявления переменных и функций ' +
@@ -236,9 +236,9 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Расскажи про ключевые слова let, var и const',
       slug: slugs.letvarconst,
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
-        javascriptTags.es6,
+        tags.junior,
+        tags.fundamentals,
+        tags.es6,
       ],
       answer: [
         'var, let, и const - ключевые слова в JavaScript для объявления переменных.',
@@ -262,8 +262,8 @@ const javascriptQuestionCollection: QuestionSection = {
         'apply: Вызывает функцию с указанным контекстом и массивом аргументов.'
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
+        tags.junior,
+        tags.fundamentals,
       ],
       references: [
         {
@@ -276,7 +276,7 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'В чем различия двойного и тройного знака равно?',
       slug: slugs['exact-comparsion'],
       tags: [
-        levelTags.junior,
+        tags.junior,
       ],
       answer: [
         '== — используется для сравнивания операндов с приведением типов',
@@ -293,9 +293,9 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Что такое бабблинг или "Погружение, перехват, всплытие"?',
       slug: slugs.bubbling,
       tags: [
-        levelTags.junior,
-        javascriptTags.dom,
-        javascriptTags.underTheHood,
+        tags.junior,
+        tags.dom,
+        tags.fundamentals,
       ],
       answer: [
         'Бабблинг — это механизм восходящего распространения событий от дочерних элементов к их родителям в DOM.',
@@ -321,8 +321,8 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Что такое делегирование событий?',
       slug: slugs.delegation,
       tags: [
-        levelTags.junior,
-        javascriptTags.dom,
+        tags.junior,
+        tags.dom,
       ],
       answer: [
         'В JavaScript делегирование событий означает использование одного обработчика событий ' +
@@ -339,8 +339,8 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Зачем нужно делегирование событий?',
       slug: slugs.whydelegation,
       tags: [
-        levelTags.junior,
-        javascriptTags.dom,
+        tags.junior,
+        tags.dom,
       ],
       references: [
         {
@@ -370,9 +370,9 @@ const javascriptQuestionCollection: QuestionSection = {
         }
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.es6,
-        javascriptTags.function,
+        tags.junior,
+        tags.es6,
+        tags.function,
       ]
     },
     {
@@ -390,17 +390,17 @@ const javascriptQuestionCollection: QuestionSection = {
         }
       ],
       tags: [
-        levelTags.middle,
-        javascriptTags.function,
+        tags.middle,
+        tags.function,
       ]
     },
     {
       name: 'Что будет если обычную функцию (без this внутри) вызвать с оператором new?',
       slug: slugs['tricky-new'],
       tags: [
-        levelTags.middle,
-        javascriptTags.underTheHood,
-        javascriptTags.function,
+        tags.middle,
+        tags.fundamentals,
+        tags.function,
       ],
       answer: [
         'Функция вернет пустой объект, прототипом которого будет являться объект с использованной нам функцией',
@@ -416,9 +416,9 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Что такое каррирование функций? Приведите примеры',
       slug: slugs.carrying,
       tags: [
-        levelTags.senior,
-        javascriptTags.function,
-        javascriptTags.underTheHood,
+        tags.senior,
+        tags.function,
+        tags.fundamentals,
       ],
       answer: [
         'Каррирование — это преобразование функции с любым количеством аргументов в функцию только с одним аргументом.',
@@ -455,8 +455,8 @@ const javascriptQuestionCollection: QuestionSection = {
         }
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
+        tags.junior,
+        tags.fundamentals,
       ]
     },
     {
@@ -468,8 +468,8 @@ const javascriptQuestionCollection: QuestionSection = {
         'В стеке вызовов хранятся функции, до которых дошёл интерпретатор, и которые надо выполнить.',
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
+        tags.junior,
+        tags.fundamentals,
       ],
       references: [
         {
@@ -482,8 +482,8 @@ const javascriptQuestionCollection: QuestionSection = {
       name: 'Что такое микро- и макро-таски (задачи)?',
       slug: slugs.micromacro,
       tags: [
-        levelTags.middle,
-        javascriptTags.underTheHood,
+        tags.middle,
+        tags.fundamentals,
       ],
       references: [
         {
@@ -500,9 +500,9 @@ const javascriptQuestionCollection: QuestionSection = {
     {
       name: 'Почему в NodeJS используется require() вместо import()?',
       tags: [
-        levelTags.senior,
-        javascriptTags.underTheHood,
-        javascriptTags.es6,
+        tags.senior,
+        tags.fundamentals,
+        tags.es6,
       ],
       slug: slugs.requireimport,
       answer: [
@@ -531,8 +531,8 @@ const javascriptQuestionCollection: QuestionSection = {
         }
       ],
       tags: [
-        levelTags.junior,
-        javascriptTags.underTheHood,
+        tags.junior,
+        tags.fundamentals,
       ]
     },
   ]

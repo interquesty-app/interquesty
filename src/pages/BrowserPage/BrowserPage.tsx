@@ -35,9 +35,9 @@ export const BrowserPage = () => {
   const filteredSections = sections.map(section => {
     const collection = section.collection
       .filter(question => {
-        const questionTags = question.tags?.map(item => item.slug);
+        const questionTags = question.tags?.map(item => item.name);
         return question.name.includes(filters.search)
-          && filters.tags.every(tag => questionTags?.includes(tag.slug));
+          && filters.tags.every(tag => questionTags?.includes(tag.name));
       });
 
     return {

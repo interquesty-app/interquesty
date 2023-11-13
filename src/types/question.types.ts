@@ -7,7 +7,6 @@ export interface QuestionReference {
 
 export interface QuestionTag {
   name: string;
-  slug: string;
   color: `#${string}`;
 }
 

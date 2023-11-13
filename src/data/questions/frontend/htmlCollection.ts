@@ -1,4 +1,4 @@
-import {htmlTags, levelTags} from "@/data/tags";
+import tags from "@/data/tags";
 import type {QuestionSection} from "@/types/question.types.ts";
 import {createQuestionSlug} from "@/utils/slug.ts";
 
@@ -27,7 +27,7 @@ const browserQuestionCollection: QuestionSection = {
         'сайта были хорошие показатели SEO.'
       ],
       tags: [
-        levelTags.junior,
+        tags.junior,
       ],
       references: [
         {
@@ -45,7 +45,7 @@ const browserQuestionCollection: QuestionSection = {
         'Строчный элемент можно вложить в блочный, блочный элемент нельзя вложить в строчный.'
       ],
       tags: [
-        levelTags.junior
+        tags.junior,
       ],
       references: [
         {
@@ -66,8 +66,7 @@ const browserQuestionCollection: QuestionSection = {
         'Браузер не будет жаловаться на то, что атрибута нет, однако, верстка не пройдет валидацию на W3C Validator',
       ],
       tags: [
-        levelTags.junior,
-        htmlTags.img,
+        tags.junior,
       ],
       references: [
         {
@@ -83,8 +82,7 @@ const browserQuestionCollection: QuestionSection = {
         'В случае если картинка имеет декоративный характер и не несет никакой смысловой нагрузки (иконка, разделитель текста, emoji)'
       ],
       tags: [
-        levelTags.junior,
-        htmlTags.img,
+        tags.junior,
       ],
       references: [
         {

@@ -15,12 +15,12 @@ const getTagStyle = (color: IQuestionTag['color']) => {
   }
 };
 
-export const QuestionTag = ({className, name, color, slug, onClick}: QuestionTagProperties) => {
+export const QuestionTag = ({className, name, color, onClick}: QuestionTagProperties) => {
   const tagStyle = getTagStyle(color);
 
   const onTagClick = useCallback<MouseEventHandler>((event) => {
     event.stopPropagation();
-    const currentTag = {name, color, slug};
+    const currentTag: IQuestionTag = {name, color};
     onClick && onClick(currentTag);
   }, []);
 

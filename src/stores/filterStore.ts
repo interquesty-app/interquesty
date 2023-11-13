@@ -17,8 +17,8 @@ const filterStore = {
     toggle(tag: QuestionTag) {
       const store = $filterStore.get();
 
-      if (store.tags.some(item => item.slug === tag.slug)) {
-        this.remove(tag.slug);
+      if (store.tags.some(item => item.name === tag.name)) {
+        this.remove(tag.name);
         return;
       }
 
@@ -28,9 +28,9 @@ const filterStore = {
       const store = $filterStore.get();
       $filterStore.setKey('tags', [...store.tags, tag]);
     },
-    remove(id: QuestionTag['slug']) {
+    remove(id: QuestionTag['name']) {
       const store = $filterStore.get();
-      $filterStore.setKey('tags', store.tags.filter(tag => tag.slug !== id));
+      $filterStore.setKey('tags', store.tags.filter(tag => tag.name !== id));
     }
   },
   search: {

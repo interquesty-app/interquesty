@@ -1,4 +1,4 @@
-import {levelTags} from "@/data/tags";
+import tags from "@/data/tags";
 import type {QuestionSection} from "@/types/question.types.ts";
 import {createQuestionSlug} from "@/utils/slug.ts";
 
@@ -22,7 +22,7 @@ const browserQuestionCollection: QuestionSection = {
         '16px',
       ],
       tags: [
-        levelTags.junior
+        tags.junior,
       ],
       references: [
         {
@@ -35,7 +35,7 @@ const browserQuestionCollection: QuestionSection = {
       name: 'Как писать кроссбраузерный css?',
       slug: slugs.crossbrowser,
       tags: [
-        levelTags.junior,
+        tags.junior,
       ],
       answer: [
         'Кроссбраузерная верстка подразумевает использование вендорных префиксов (-moz, -webkit) для того чтобы ' +

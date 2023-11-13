@@ -1,4 +1,38 @@
-export * from './levelTags.ts';
-export * from './javascriptTags.ts';
-export * from './htmlTags.ts';
-export * from './vueTags.ts';
+import type {QuestionTag} from "@/types/question.types.ts";
+
+const tags = {
+  junior: {
+    color: '#f3dd88',
+    name: 'junior'
+  },
+  middle: {
+    color: '#83bde3',
+    name: 'middle'
+  },
+  senior: {
+    color: '#ccec9b',
+    name: 'senior',
+  },
+  dom: {
+    color: '#f1b295',
+    name: 'dom',
+  },
+  fundamentals: {
+    color: '#eaa3c8',
+    name: 'fundamentals'
+  },
+  function: {
+    color: '#53d9b5',
+    name: 'function'
+  },
+  es6: {
+    color: '#e598dd',
+    name: 'es6'
+  },
+  reactivity: {
+    color: '#a9a4e5',
+    name: 'reactivity'
+  },
+} as const satisfies Record<string, QuestionTag>;
+
+export default tags;

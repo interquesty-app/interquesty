@@ -1,4 +1,4 @@
-import {levelTags, vueTags} from "@/data/tags";
+import tags from '@/data/tags';
 import type {QuestionSection} from "@/types/question.types.ts";
 import {createQuestionSlug} from "@/utils/slug.ts";
 
@@ -31,17 +31,17 @@ const browserQuestionCollection: QuestionSection = {
         }
       ],
       tags: [
-        levelTags.junior,
-        vueTags.fundamentals,
-        vueTags.reactivity,
+        tags.junior,
+        tags.fundamentals,
+        tags.reactivity,
       ]
     },
     {
       name: 'Каким образом компоненты могут обмениваться даными между собой?',
       slug: slugs.props,
       tags: [
-        levelTags.junior,
-        vueTags.fundamentals,
+        tags.junior,
+        tags.fundamentals,
       ],
       references: [
         {
@@ -69,9 +69,9 @@ const browserQuestionCollection: QuestionSection = {
         'каждый раз при обновлении его зависимостей.'
       ],
       tags: [
-        levelTags.junior,
-        vueTags.reactivity,
-        vueTags.fundamentals,
+        tags.junior,
+        tags.fundamentals,
+        tags.reactivity,
       ]
     }
   ]
