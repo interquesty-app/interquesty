@@ -18,7 +18,7 @@ export const QuestionItemTags = ({tags}: QuestionItemTagsProperties) => {
     <ul className={styles.tags}>
       {
         tags?.map(tag =>
-          <li key={tag.slug}>
+          <li key={tag.name}>
             <QuestionTag onClick={onTagClick}  {...tag} />
           </li>
         )

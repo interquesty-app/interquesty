@@ -1,5 +1,5 @@
 import {BrowserFilter} from "@/components/BrowserFilter/BrowserFilter.tsx";
-import {QuestionList} from "@/components/QuestionList/QuestionList.tsx";
+import {QuestionList} from "@/components/QuestionList";
 import {SummaryFooter} from "@/components/SummaryFooter";
 import {Title} from "@/components/ui/Title/Title.tsx";
 import filterStore from "@/stores/filterStore.ts";
