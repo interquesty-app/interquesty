@@ -1,19 +1,21 @@
 .question-item {
   display: flex;
   user-select: none;
-  padding-left: 64px;
-  margin-left: -64px;
+
+  &_summary {
+    margin-left: -64px;
+    padding-left: 64px;
+
+    &:hover {
+      .summary {
+        display: block;
+      }
+    }
+  }
 
   &_active,
   &:hover {
     padding-left: 0;
-  }
-
-  &:hover {
-    border-color: var(--color-border-secondary);
-    .summary {
-      display: block;
-    }
   }
 
   &__wrapper {
@@ -24,6 +26,10 @@
     border-radius: 4px;
     cursor: pointer;
     transition: all 100ms ease-in-out;
+
+    &:hover {
+      border-color: var(--color-border-secondary);
+    }
   }
 
   &__header {

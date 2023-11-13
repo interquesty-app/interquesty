@@ -34,7 +34,10 @@ export const QuestionItem = ({className, name, tags, answer, references, slug, s
   }, []);
 
   return (
-  <div onClick={() => setIsExpanded(!isExpanded)} className={clsx(styles.questionItem, {[styles.questionItem_active]: isQuestionInSummary}, className)}>
+  <div
+    onClick={() => setIsExpanded(!isExpanded)}
+    className={clsx(styles.questionItem, {[styles.questionItem_active]: isQuestionInSummary, [styles.questionItem_summary]: !noSummary}, className)}
+  >
       {!noSummary && <QuestionItemSummaryButton onClick={onSummaryButtonClick} isActive={isQuestionInSummary} />}
       <div className={styles.questionItem__wrapper}>
         <QuestionItemHeader name={name} tags={tags} />
