@@ -1,6 +1,6 @@
 import {DefaultLayout} from "@/layout";
 import {createBrowserRouter} from "react-router-dom";
-import {BrowserPage, HomePage} from "@/pages";
+import {BrowserPage, HomePage, SummaryPage} from "@/pages";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
       {
         path: '/browse/*',
         element: <BrowserPage />
+      },
+      {
+        path: '/summary',
+        element: <SummaryPage />
       }
     ]
   },

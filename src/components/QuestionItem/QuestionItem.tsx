@@ -1,21 +1,42 @@
 import {QuestionReference} from "@/components/QuestionReference";
 import {QuestionTag} from "@/components/QuestionTag";
-import {Text, } from "@/components/ui";
+import {Button, Text,} from "@/components/ui";
 import filterStore from "@/stores/filterStore.ts";
+import summaryStore from "@/stores/summaryStore.ts";
 import type {Question, QuestionTag as IQuestionTag} from "@/types/question.types.ts";
+import {Icon} from "@iconify-icon/react";
+import {useStore} from "@nanostores/react";
 import {clsx} from "clsx";
-import {useCallback, useState} from "react";
+import {computed} from "nanostores";
+import {type MouseEventHandler, useCallback, useState} from "react";
 import styles from './questionitem.module.scss';
 
 interface QuestionItemProperties extends Question {
   className?: string | string[];
+  noSummary?: boolean;
 }
 
-export const QuestionItem = ({className, name, tags, answer, references}: QuestionItemProperties) => {
+export const QuestionItem = ({className, name, tags, answer, references, slug, similars, noSummary}: QuestionItemProperties) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const summary = useStore(summaryStore.state);
+  const isQuestionInSummary = summary.questions.findIndex(question => question.slug === slug) !== -1;
 
   const onTagClick = useCallback((tag: IQuestionTag) => {
     filterStore.tags.toggle(tag);
+  }, []);
+
+  const onSummaryButtonClick = useCallback<MouseEventHandler<HTMLButtonElement>>((event) => {
+    event.stopPropagation();
+
+    summaryStore.questions.toggle({
+      slug,
+      tags,
+      answer,
+      name,
+      references,
+      similars,
+    });
   }, []);
 
   const tagsList = tags?.map((tag, index) =>
@@ -39,6 +60,17 @@ export const QuestionItem = ({className, name, tags, answer, references}: Questi
 
   return (
     <div onClick={() => setIsExpanded(!isExpanded)} className={clsx(styles.questionitem, className)}>
+      {
+        !noSummary &&
+          <div className={clsx(styles.checkbox, {[styles.checkbox_active]: isQuestionInSummary})}>
+            <Button
+              onClick={onSummaryButtonClick}
+              className={clsx(styles.checkbox__button, {[styles.checkbox__button_active]: isQuestionInSummary})}
+            >
+              <Icon icon="mdi:checkbox-marked-circle-outline" />
+            </Button>
+          </div>
+      }
       <div className={styles.questionitem__header}>
         <Text className={styles.questionitem__name}>{name}</Text>
         <div className={styles.tags}>

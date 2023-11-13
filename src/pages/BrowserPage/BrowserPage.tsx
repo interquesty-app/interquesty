@@ -1,7 +1,9 @@
 import {BrowserFilter} from "@/components/BrowserFilter/BrowserFilter.tsx";
 import {QuestionList} from "@/components/QuestionList/QuestionList.tsx";
+import {SummaryFooter} from "@/components/SummaryFooter";
 import {Title} from "@/components/ui/Title/Title.tsx";
 import filterStore from "@/stores/filterStore.ts";
+import summaryStore from "@/stores/summaryStore.ts";
 import type {QuestionModule, QuestionSection} from "@/types/question.types.ts";
 import {useStore} from "@nanostores/react";
 import {useEffect, useState} from "react";
@@ -13,6 +15,7 @@ export const BrowserPage = () => {
   const currentCollection = path.pathname.split('/').at(-1);
   const [sections, setSections] = useState<QuestionSection[]>([]);
   const filters = useStore(filterStore.state);
+  const summary = useStore(summaryStore.state);
 
   useEffect(() => {
     const fetchSections = async () =>
@@ -54,6 +57,7 @@ export const BrowserPage = () => {
     <div className={styles.browserpage}>
       <BrowserFilter />
       {questionList}
+      {summary.questions.length > 0 && <SummaryFooter />}
     </div>
   );
 };

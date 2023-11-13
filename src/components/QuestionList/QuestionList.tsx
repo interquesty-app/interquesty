@@ -5,15 +5,16 @@ import styles from './questionlist.module.scss';
 
 interface QuestionListProperties {
   list: Question[];
+  noSummary?: boolean;
   className?: string | string[];
 }
 
-export const QuestionList = ({className, list}: QuestionListProperties) => {
+export const QuestionList = ({className, list, noSummary}: QuestionListProperties) => {
   return (
     <ul className={clsx(styles.questionlist, className)}>
       {list.map((item, index) =>
         <li key={index} className={styles.questionlist__item}>
-          <QuestionItem {...item} />
+          <QuestionItem noSummary={noSummary} {...item} />
         </li>
       )}
     </ul>
