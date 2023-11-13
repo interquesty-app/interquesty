@@ -46,8 +46,8 @@ export const BrowserPage = () => {
     };
   });
 
-  const questionList = filteredSections.map((section, index) => (
-    section.collection.length > 0 && <div className={styles.browserpage__questions} key={index}>
+  const questionList = filteredSections.map((section) => (
+    section.collection.length > 0 && <div className={styles.browserpage__questions} key={section.title}>
       <Title>{section.title}</Title>
       <QuestionList className={styles.browserpage__collection} list={section.collection} />
     </div>

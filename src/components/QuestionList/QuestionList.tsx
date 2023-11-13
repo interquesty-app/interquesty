@@ -12,8 +12,8 @@ interface QuestionListProperties {
 export const QuestionList = ({className, list, noSummary}: QuestionListProperties) => {
   return (
     <ul className={clsx(styles.questionlist, className)}>
-      {list.map((item, index) =>
-        <li key={index} className={styles.questionlist__item}>
+      {list.map((item) =>
+        <li key={item.slug} className={styles.questionlist__item}>
           <QuestionItem noSummary={noSummary} {...item} />
         </li>
       )}
