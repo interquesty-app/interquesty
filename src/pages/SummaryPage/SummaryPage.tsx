@@ -1,13 +1,10 @@
 import {QuestionList} from "@/components/QuestionList/QuestionList.tsx";
-import summaryStore from "@/stores/summaryStore.ts";
 import {type Question, type QuestionModule} from "@/types/question.types.ts";
-import {useStore} from "@nanostores/react";
 import {useCallback, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import styles from './summary-page.module.scss';
 
 export const SummaryPage = () => {
-  const summary = useStore(summaryStore.state);
   const location = useLocation();
   const [questions, setQuestions] = useState<Question[]>([]);
   const parametersGetter = new URLSearchParams(location.search);
@@ -18,10 +15,6 @@ export const SummaryPage = () => {
 
 
   const fetchQuestions = useCallback(async () => {
-    if (summary.questions.length > 0) {
-      return [];
-    }
-
     const fetchSections = async () =>
       import(`../../data/questions/${parameters.section}/index.ts`);
 
@@ -49,7 +42,7 @@ export const SummaryPage = () => {
   }, []);
   return (
     <div className={styles.summaryPage}>
-      <QuestionList noSummary className={styles.browserpage__collection} list={summary.questions.length > 0 ? summary.questions : questions} />
+      <QuestionList noSummary className={styles.browserpage__collection} list={questions} />
    </div>
   );
 };
