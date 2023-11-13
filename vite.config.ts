@@ -7,6 +7,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5111,
+
+  },
+  css: {
+    modules: {
+      localsConvention: 'dashesOnly',
+    },
   },
   resolve: {
     alias: [

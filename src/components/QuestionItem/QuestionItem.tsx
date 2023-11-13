@@ -1,9 +1,10 @@
 import {QuestionReference} from "@/components/QuestionReference";
 import {QuestionTag} from "@/components/QuestionTag";
 import {Text, } from "@/components/ui";
-import type {Question} from "@/types/question.types.ts";
+import filterStore from "@/stores/filterStore.ts";
+import type {Question, QuestionTag as IQuestionTag} from "@/types/question.types.ts";
 import {clsx} from "clsx";
-import {useState} from "react";
+import {useCallback, useState} from "react";
 import styles from './questionitem.module.scss';
 
 interface QuestionItemProperties extends Question {
@@ -13,8 +14,12 @@ interface QuestionItemProperties extends Question {
 export const QuestionItem = ({className, name, tags, answer, references}: QuestionItemProperties) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const onTagClick = useCallback((tag: IQuestionTag) => {
+    filterStore.tags.toggle(tag);
+  }, []);
+
   const tagsList = tags?.map((tag, index) =>
-    <QuestionTag key={index} {...tag} />
+    <QuestionTag onClick={onTagClick} key={index} {...tag} />
   );
 
   const answerDescription = isExpanded && (

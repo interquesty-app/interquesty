@@ -1,0 +1,17 @@
+.browser-filter {
+  display: flex;
+}
+
+.tags {
+  display: flex;
+  gap: 12px;
+  height: 21.8px;
+
+  &:has(&__item) {
+    height: initial;
+  }
+
+  &__item {
+
+  }
+}
