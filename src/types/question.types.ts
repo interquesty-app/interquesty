@@ -21,6 +21,7 @@ export interface Question {
 
 export interface QuestionSection {
   title: string;
+  icon?: string;
   collection: Question[];
 }
 

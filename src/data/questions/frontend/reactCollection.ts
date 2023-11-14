@@ -1,7 +1,8 @@
 import type {QuestionSection} from "@/types/question.types.ts";
 
 const reactCollection: QuestionSection = {
-  title: 'React ⚛️',
+  title: 'React',
+  icon: 'fluent-emoji:llama',
   collection: [
     // {
     //   name: 'Для чего используется оператор "&&"',

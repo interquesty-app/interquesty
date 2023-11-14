@@ -10,7 +10,8 @@ export const slugs = {
 };
 
 const browserQuestionCollection: QuestionSection = {
-  title: 'CSS 🖼️',
+  title: 'CSS',
+  icon: 'fluent-emoji:framed-picture',
   collection: [
     {
       name: 'Чем отличается em от rem?',

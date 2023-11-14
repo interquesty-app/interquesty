@@ -1,12 +1,15 @@
 import {QuestionTag} from "@/components/QuestionTag";
 import {Text} from "@/components/ui";
-import internalTags from "@/data/tags";
+import suggestions from "@/data/tags/suggestions.ts";
 import filterStore from "@/stores/filterStore.ts";
+import {useLocation} from "react-router-dom";
 import styles from './browserfilter.module.scss';
 
 export const BrowserFilterSuggestions = () => {
 
-  const suggestionList = Object.values(internalTags).map(tag =>
+  const currentSection = useLocation().pathname.split('/').at(-1) as keyof typeof suggestions;
+
+  const suggestionList = Object.values(suggestions[currentSection]).map(tag =>
     <li key={`suggestion-tag-${tag.name}`}>
       <QuestionTag
         onClick={tag => filterStore.tags.toggle(tag)}

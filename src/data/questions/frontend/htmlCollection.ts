@@ -12,7 +12,8 @@ export const slugs = {
 };
 
 const browserQuestionCollection: QuestionSection = {
-  title: 'HTML 🧱',
+  title: 'HTML',
+  icon: 'fluent-emoji:skull',
   collection: [
     {
       name: 'Что такое семантические теги и зачем они нужны?',

@@ -33,6 +33,22 @@ const tags = {
     color: '#a9a4e5',
     name: 'reactivity'
   },
+  vue3: {
+    color: '#83d78e',
+    name: 'vue-3',
+  },
+  vue2: {
+    color: '#faf7bb',
+    name: 'vue-2',
+  },
+  vuex: {
+    color: '#62d2c1',
+    name: 'vuex'
+  },
+  pinia: {
+    color: '#e8d42f',
+    name: 'pinia',
+  }
 } as const satisfies Record<string, QuestionTag>;
 
 export default tags;

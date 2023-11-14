@@ -14,6 +14,9 @@ const $filterStore = map<FilterStoreState>({
 const filterStore = {
   state: $filterStore,
   tags: {
+    clear() {
+      $filterStore.setKey('tags', []);
+    },
     toggle(tag: QuestionTag) {
       const store = $filterStore.get();
 

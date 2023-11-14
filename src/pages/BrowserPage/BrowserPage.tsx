@@ -5,6 +5,7 @@ import {Title} from "@/components/ui/Title/Title.tsx";
 import filterStore from "@/stores/filterStore.ts";
 import summaryStore from "@/stores/summaryStore.ts";
 import type {QuestionModule, QuestionSection} from "@/types/question.types.ts";
+import {Icon} from "@iconify-icon/react";
 import {useStore} from "@nanostores/react";
 import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
@@ -47,8 +48,11 @@ export const BrowserPage = () => {
   });
 
   const questionList = filteredSections.map((section) => (
-    section.collection.length > 0 && <div className={styles.browserpage__questions} key={section.title}>
-      <Title>{section.title}</Title>
+    section.collection.length > 0 && <div className={styles.questions} key={section.title}>
+      <Title className={styles.questions__title}>
+        {section.icon && <Icon icon={section?.icon} />}
+        {section.title}
+      </Title>
       <QuestionList className={styles.browserpage__collection} list={section.collection} />
     </div>
   ));

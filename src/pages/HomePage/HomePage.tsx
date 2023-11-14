@@ -1,4 +1,6 @@
 import {SectionList} from "@/components/SectionList/SectionList.tsx";
+import {Text} from "@/components/ui";
+import {Icon} from "@iconify-icon/react";
 import {clsx} from "clsx";
 import styles from './homepage.module.scss';
 import sections from "@/data/sections.ts";
@@ -20,6 +22,10 @@ export const HomePage = () => {
         собеседующий может отправить кандидату список вопросов, который ему ранее задавали для дальнейшего изучение/анализов
         ответа.
       </div>
+      <Text className={styles.homepage__author}>
+        Coded with a bit of magic by <a className={styles.homepage__link} href="https://developer-log.vercel.app">&lt;tokiory&gt;</a>
+        <Icon style={{fontSize: '32px'}} icon="fluent-emoji:whale" />
+      </Text>
     </div>
   );
 };
