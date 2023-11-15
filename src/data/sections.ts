@@ -17,7 +17,7 @@ const sections: Section[] = [
   },
   {
     name: 'QA',
-    link: getSectionUrl('frontend'),
+    link: getSectionUrl('qa'),
     icon: 'fe:question',
   },
 ];
