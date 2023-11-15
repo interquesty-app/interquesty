@@ -41,8 +41,14 @@ export const QuestionItem = ({className, name, tags, answer, references, slug, s
       {!noSummary && <QuestionItemSummaryButton onClick={onSummaryButtonClick} isActive={isQuestionInSummary} />}
       <div className={styles.questionItem__wrapper}>
         <QuestionItemHeader name={name} tags={tags} />
-        {isExpanded && <QuestionItemDescription answer={answer} /> }
-        <QuestionItemReferences references={references} isExpanded={isExpanded} />
+        {isExpanded && <QuestionItemDescription answer={answer} />}
+        <QuestionItemReferences
+          references={references}
+          similars={similars}
+          noSummary={noSummary}
+          slug={slug}
+          isExpanded={isExpanded}
+        />
       </div>
     </div>
   );

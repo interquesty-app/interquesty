@@ -59,7 +59,8 @@ const javascriptQuestionCollection: QuestionSection = {
         }
       ],
       similars: [
-        slugs["link-type"]
+        slugs["link-type"],
+        slugs["exact-comparsion"],
       ]
     },
     {
@@ -236,6 +237,9 @@ const javascriptQuestionCollection: QuestionSection = {
     {
       name: 'Расскажи про ключевые слова let, var и const',
       slug: slugs.letvarconst,
+      similars: [
+        slugs.hoisting,
+      ],
       tags: [
         tags.junior,
         tags.fundamentals,
@@ -310,6 +314,10 @@ const javascriptQuestionCollection: QuestionSection = {
         'произошедшее на дочерних элементах',
         'Когда событие происходит, оно проходит через все три фазы, и обработчики могут быть установлены как на фазе ' +
         'всплытия, так и на фазе погружения, в зависимости от потребностей. Это называется моделью обработки событий.'
+      ],
+      similars: [
+        slugs.delegation,
+        slugs.whydelegation,
       ],
       references: [
         {
@@ -444,6 +452,10 @@ const javascriptQuestionCollection: QuestionSection = {
         '2. Затем Event Loop смотрит есть ли у нас микро-таски и выполняет их все;',
         '3. После этого Event Loop выполняет ОДНУ макро-таску;',
         '4. Если нужно перерендерить страницу - происходит ререндер (все остальные задачи ждут ререндера);',
+      ],
+      similars: [
+        slugs["call-stack"],
+        slugs.micromacro,
       ],
       references: [
         {

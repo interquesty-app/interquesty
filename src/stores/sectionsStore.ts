@@ -1,0 +1,33 @@
+import {Question, QuestionModule} from "@/types/question.types.ts";
+import type {QuestionSection, QuestionTag} from "@/types/question.types.ts";
+import {atom, computed} from "nanostores";
+
+const $sectionsStore = atom<QuestionSection[]>([]);
+
+const flattenedQuestions = computed($sectionsStore, sections =>
+  // eslint-disable-next-line unicorn/no-array-reduce
+  sections.reduce<Question[]>((accumulator, section) => [...accumulator, ...section.collection], [])
+);
+
+const sectionsStore = {
+  state: $sectionsStore,
+  find(slug: Question['slug']) {
+    return flattenedQuestions.get()?.find(item => item.slug === slug);
+  },
+  async fetch(collection: string) {
+    const fetchSections = async () =>
+      import(`../data/questions/${collection}/index.ts`);
+
+    const transformSectionModule = async (module: QuestionModule) => {
+      return module.default;
+    };
+
+    fetchSections()
+      .then(transformSectionModule)
+      .then(sections => {
+        this.state.set(sections);
+      });
+  }
+}
+
+export default sectionsStore;

@@ -8,11 +8,20 @@ const slugs = {
   "key-modificators": slug('key-modificators'),
   "reactivity-3": slug('reactivity-3'),
   "reactivity-2": slug('reactivity-2'),
+  "immediate-watch": slug('immediate-watch'),
+  "stop-watch": slug('stop-watch'),
+  "functional-ref": slug('functional-ref'),
+  "component-ref": slug('component-ref'),
+  refdirective: slug('refdirective'),
   lifecycle: slug('lifecycle'),
+  refvfor: slug('refvfor'),
+  watcheffect: slug('watcheffect'),
+  watch: slug('watch'),
   twobind: slug('twobind'),
   props: slug('props'),
   computed: slug('computed'),
   keys: slug('keys'),
+  html: slug('html'),
 };
 
 const browserQuestionCollection: QuestionSection = {
@@ -60,6 +69,179 @@ const browserQuestionCollection: QuestionSection = {
         'Если речь идет о передаче сверху вниз: пропсы, provide/inject',
         'Если речь идет о передаче снизу вверх: emit',
         'Если речь идет о глобальных реактивных состояниях: стор (Vuex/Pinia)',
+      ]
+    },
+    {
+      name: 'Как вставить сырой HTML внутрь тега?',
+      slug: slugs.html,
+      tags: [
+        tags.junior,
+        tags.fundamentals,
+      ],
+      references: [
+        {
+          name: 'Vue.js Docs: Raw HTML',
+          link: 'https://vuejs.org/guide/essentials/template-syntax.html#raw-html',
+        }
+      ],
+      answer: [
+        'Для того чтобы вставить сырой HTML внутрь тега нужно использовать директиву v-html',
+      ]
+    },
+    {
+      name: 'Чем watchEffect отличается от watch?',
+      tags: [
+        tags.middle,
+        tags.fundamentals,
+      ],
+      answer: [
+        'Методу watch нужно состояние за которым он будет следить, после измения реактивного состояния ' +
+        'watch выполнит callback',
+        'watchEffect ничего не нужно, он следит за всеми реактивными состояниями, которые находятся внутри' +
+        'его callback\'а, а также он запускает callback сразу же после монтирования компонента',
+      ],
+      slug: slugs.watcheffect,
+      references: [
+        {
+          name: 'Vue.js Docs: watchEffect()',
+          link: 'https://vuejs.org/guide/essentials/watchers.html#watcheffect',
+        }
+      ]
+    },
+    {
+      name: 'Для чего нужна директива ref',
+      slug: slugs.refdirective,
+      answer: [
+        'Директива ref привязывает DOM-элемент к реактивному состоянию',
+      ],
+      similars: [
+        slugs.refvfor,
+        slugs["component-ref"],
+        slugs["functional-ref"]
+      ],
+      references: [
+        {
+          name: 'Vue.js Docs: Template Refs',
+          link: 'https://vuejs.org/guide/essentials/template-refs.html',
+        }
+      ],
+      tags: [
+        tags.junior,
+        tags.fundamentals,
+      ]
+    },
+    {
+      name: 'Что такое watch?',
+      slug: slugs.watch,
+      similars: [
+        slugs.watcheffect,
+        slugs["immediate-watch"],
+        slugs["stop-watch"],
+      ],
+      references: [
+        {
+          name: 'Vue.js Docs: Watchers',
+          link: 'https://vuejs.org/guide/essentials/watchers.html#watchers'
+        }
+      ],
+      tags: [
+        tags.junior,
+        tags.fundamentals,
+      ],
+      answer: [
+        'Watch — специальный метод из @vue/reactivity, который позволяет следить за изменениями ' +
+        'реактивных состояний и запускать переданный ему во втором аргументе коллбэк, когда состояния ' +
+        'за которыми он следит меняются.',
+      ],
+    },
+    {
+      name: 'Как использовать директиву ref с директивой v-for?',
+      tags: [
+        tags.junior,
+        tags.fundamentals,
+      ],
+      references: [
+        {
+          name: 'Vue.js Docs: Refs inside v-for',
+          link: 'https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for',
+        }
+      ],
+      slug: slugs.refvfor,
+      answer: [
+        'Для того чтобы использовать ref с v-for достаточно просто создать реактивное состояние, ' +
+        'которое по умолчанию будет содержать массив. После того как v-for выполнится - массив ' +
+        'заполнится рефами с DOM-элементами',
+      ],
+    },
+    {
+      name: 'Можно ли в директиву ref передать функцию?',
+      slug: slugs['functional-ref'],
+      answer: [
+        'Да, можно. Как только DOM-элемент отрендерится — коллбэк переданный в директиву ref выполнится, первым ' +
+        'аргументом внутри данного колбэка может быть параметр, который будет содержать DOM-элемент',
+      ],
+      tags: [
+        tags.middle,
+        tags.fundamentals,
+      ],
+      references: [
+        {
+          name: 'Vue.js Docs: Functional Refs',
+          link: 'https://vuejs.org/guide/essentials/template-refs.html#function-refs',
+        }
+      ],
+    },
+    {
+      name: 'Что будет если мы используем директиву ref с компонентом?',
+      slug: slugs['component-ref'],
+      answer: [
+        'ref будет содержать пустой объект, в котором ничего не будет. Для того чтобы в данном объекте ' +
+        'были какие-либо данные нужно использовать defineExpose().',
+      ],
+      tags: [
+        tags.middle,
+        tags.fundamentals,
+      ],
+      references: [
+        {
+          name: 'Vue.js Docs: Ref on Component',
+          link: 'https://vuejs.org/guide/essentials/template-refs.html#ref-on-component',
+        }
+      ],
+    },
+    {
+      name: 'Как остановить слежение за изменениями с помощью watch?',
+      tags: [
+        tags.middle,
+        tags.fundamentals,
+      ],
+      answer: [
+        'Когда мы вызываем watch() он отдает нам коллбэк, которым как раз можно остановить его действие',
+      ],
+      slug: slugs['stop-watch'],
+      references: [
+        {
+          name: 'Vue.js Docs: Watchers',
+          link: 'https://vuejs.org/guide/essentials/watchers.html#watchers'
+        }
+      ]
+    },
+    {
+      name: 'Как сделать так, чтобы коллбэк в watch запустился при монтировании компонента?',
+      slug: slugs['immediate-watch'],
+      tags: [
+        tags.junior,
+        tags.fundamentals,
+      ],
+      references: [
+        {
+          name: 'Vue.js Docs: Eager Watchers',
+          link: 'https://vuejs.org/guide/essentials/watchers.html#eager-watchers'
+        }
+      ],
+      answer: [
+        'Для того чтобы watch запустился сразу же после монтирования компонента достаточно использовать опцию ' +
+        '{immediate: true}'
       ]
     },
     {

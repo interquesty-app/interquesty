@@ -1,5 +1,7 @@
 .browserpage {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   padding: 48px 12px 72px;
   width: 100%;
   max-width: 840px;

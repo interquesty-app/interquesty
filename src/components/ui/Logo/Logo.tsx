@@ -19,7 +19,7 @@ export const Logo = () => {
     <div onClick={onLogoClick} className={styles.logo}>
       <Icon icon="fluent-emoji:hatching-chick" />
       <Icon icon="fluent-emoji:front-facing-baby-chick" />
-      <Icon icon="fluent-emoji:baby-chick" />
+      <Icon icon="fluent-emoji:dodo" />
     </div>
   );
 };

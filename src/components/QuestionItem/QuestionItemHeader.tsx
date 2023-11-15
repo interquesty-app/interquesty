@@ -7,10 +7,13 @@ type QuestionItemHeaderProperties = Pick<Question, 'tags' | 'name'>;
 
 export const QuestionItemHeader = ({name, tags}: QuestionItemHeaderProperties) => {
   return (
-    <div className={styles.questionItem__header}>
-      <Text className={styles.questionItem__name}>{name}</Text>
-      <div className={styles.tags}>
-        <QuestionItemTags tags={tags} />
+    <div className={styles.header}>
+      <Text className={styles.header__name}>{name}</Text>
+
+      <div className={styles.header__navigation}>
+        <div className={styles.tags}>
+          <QuestionItemTags tags={tags} />
+        </div>
       </div>
     </div>
   );

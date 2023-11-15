@@ -1,16 +1,25 @@
 import type {Section} from "@/types/sections.types.ts";
 
+const getSectionUrl = (slug: string): `/${string}` => {
+  return `/browse/${slug}`;
+};
+
 const sections: Section[] = [
   {
     name: 'Frontend',
-    link: '/browse/frontend',
+    link: getSectionUrl('frontend'),
     icon: 'fe:coffee',
   },
   {
     name: 'Backend',
-    link: '/browse/backend',
+    link: getSectionUrl('backend'),
     icon: 'fe:terminal'
-  }
+  },
+  {
+    name: 'QA',
+    link: getSectionUrl('frontend'),
+    icon: 'fe:question',
+  },
 ];
 
 export default sections;
