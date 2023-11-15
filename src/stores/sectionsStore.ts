@@ -1,5 +1,5 @@
-import {Question, QuestionModule} from "@/types/question.types.ts";
-import type {QuestionSection, QuestionTag} from "@/types/question.types.ts";
+import type {Question, QuestionModule} from "@/types/question.types.ts";
+import type {QuestionSection} from "@/types/question.types.ts";
 import {atom, computed} from "nanostores";
 
 const $sectionsStore = atom<QuestionSection[]>([]);
