@@ -5,6 +5,8 @@ import {createQuestionSlug} from "@/utils/slug.ts";
 const slug = createQuestionSlug('svelte');
 const slugs = {
   difference: slug('difference'),
+  "rest-props": slug('rest-props'),
+  "raw-html": slug('raw-html'),
 };
 
 const svelteQuestionCollection: QuestionSection = {
@@ -28,6 +30,41 @@ const svelteQuestionCollection: QuestionSection = {
           name: 'Svelte.dev',
           link: 'https://svelte.dev/',
         }
+      ]
+    },
+    {
+      name: 'В чем различия $$props и $$restProps?',
+      slug: slugs["rest-props"],
+      references: [
+        {
+          name: 'Svelte.dev: Attributes and props',
+          link: 'https://svelte.dev/docs/basic-markup#attributes-and-props',
+        }
+      ],
+      tags: [
+        tags.junior,
+        tags.fundamentals,
+      ],
+      answer: [
+        '$$props — содержит все поля которые объявлены с помощью export.',
+        '$$restProps — содержит все поля которые НЕ были объявлены с помощью export, однако присутствуют в атрибутах.',
+      ]
+    },
+    {
+      name: 'Как вставить сырой HTML в тег?',
+      slug: slugs["raw-html"],
+      references: [
+        {
+          name: 'Svelte.dev: Special tags',
+          link: 'https://svelte.dev/docs/special-tags',
+        }
+      ],
+      tags: [
+        tags.junior,
+        tags.fundamentals,
+      ],
+      answer: [
+        'Сырой HTML можно вставить с помощью специального тега html.'
       ]
     }
   ],
