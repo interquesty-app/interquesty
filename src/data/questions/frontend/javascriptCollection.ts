@@ -1,4 +1,4 @@
-import tags from "@/data/tags";
+import tags from "@shared/tags";
 import type {QuestionSection} from "@/types/question.types.ts";
 import {createQuestionSlug} from "@/utils/slug.ts";
 
@@ -6,6 +6,7 @@ const slug = createQuestionSlug('js');
 
 export const slugs = {
   bindcallapply: slug('bindcallapply'),
+  this: slug('this'),
   promise: slug('promise'),
   requireimport: slug('requireimport'),
   micromacro: slug('micromacro'),
@@ -441,6 +442,33 @@ const javascriptQuestionCollection: QuestionSection = {
           link: 'https://habr.com/ru/companies/ruvds/articles/427295/'
         }
       ]
+    },
+    {
+      name: 'За что отвечает ключевое слово this?',
+      slug: slugs.this,
+      answer: [
+        '\n' +
+        'this в JavaScript относится к текущему контексту выполнения кода. Он ссылается на объект, ' +
+        'к которому относится текущая функция или метод',
+        'Значение this зависит от того, как вызывается функция или метод.'
+      ],
+      tags: [
+        tags.junior,
+        tags.fundamentals,
+      ],
+      references: [
+        {
+          name: 'MDN: this',
+          link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this',
+        },
+        {
+          name: 'JSFlow: this',
+          link: 'https://jsflow.org/docs/this-keyword/'
+        }
+      ],
+      similars: [
+        slugs.bindcallapply,
+      ],
     },
     {
       name: 'Что такое Event Loop?',

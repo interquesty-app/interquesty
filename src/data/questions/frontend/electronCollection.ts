@@ -1,4 +1,4 @@
-import tags from "@/data/tags";
+import tags from "@shared/tags";
 import {type QuestionSection} from "@/types/question.types.ts";
 import {createQuestionSlug} from "@/utils/slug.ts";
 

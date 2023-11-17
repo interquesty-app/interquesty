@@ -1,5 +1,6 @@
 import type {Question, QuestionModule} from "@/types/question.types.ts";
 import type {QuestionSection} from "@/types/question.types.ts";
+import {sortQuestion} from "@/utils/sortQuestion.ts";
 import {atom, computed} from "nanostores";
 
 const $sectionsStore = atom<QuestionSection[]>([]);
@@ -14,6 +15,7 @@ const sectionsStore = {
   find(slug: Question['slug']) {
     return flattenedQuestions.get()?.find(item => item.slug === slug);
   },
+
   async fetch(collection: string) {
     const fetchSections = async () =>
       import(`../data/questions/${collection}/index.ts`);
@@ -25,7 +27,12 @@ const sectionsStore = {
     fetchSections()
       .then(transformSectionModule)
       .then(sections => {
-        this.state.set(sections);
+        const sortedSections = sections.map(section => ({
+          ...section,
+          collection: section.collection.sort(sortQuestion),
+        }));
+        console.log({sortedSections});
+        this.state.set(sortedSections);
       });
   }
 }

@@ -1,4 +1,4 @@
-import tags from '@/data/tags';
+import tags from '@shared/tags';
 import type {QuestionSection} from "@/types/question.types.ts";
 import {createQuestionSlug} from "@/utils/slug.ts";
 
@@ -13,6 +13,7 @@ const slugs = {
   "functional-ref": slug('functional-ref'),
   "component-ref": slug('component-ref'),
   refdirective: slug('refdirective'),
+  store: slug('store'),
   lifecycle: slug('lifecycle'),
   refvfor: slug('refvfor'),
   watcheffect: slug('watcheffect'),
@@ -243,6 +244,29 @@ const browserQuestionCollection: QuestionSection = {
         'Для того чтобы watch запустился сразу же после монтирования компонента достаточно использовать опцию ' +
         '{immediate: true}'
       ]
+    },
+    {
+      name: 'Для чего нужны сторы?',
+      answer: [
+        'Сторы хранят глобальные реактивные состояния, которые могут быть использованы на любом уровне вложенности ' +
+        'компонентов.',
+      ],
+      slug: slugs.store,
+      references: [
+        {
+          name: 'Vuex Docs: What is Vuex?',
+          link: 'https://vuex.vuejs.org/',
+        },
+        {
+          name: 'Pinia Docs: What is Pinia?',
+          link: 'https://pinia.vuejs.org/introduction.html',
+        },
+      ],
+      tags: [
+        tags.junior,
+        tags.pinia,
+        tags.vuex,
+      ],
     },
     {
       name: 'Что такое computed?',
